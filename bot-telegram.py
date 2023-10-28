@@ -43,11 +43,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def reply_to_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message_text = update.message.text
-    #message_text = await chatgpt(message_text)
+    message_text = await chatgpt(message_text)
     await context.bot.send_message(chat_id=update.effective_chat.id, text=f"Response: \n {message_text}")
 
 if __name__ == '__main__':
-    token_string=""
+    token_string="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"
     application = ApplicationBuilder().token(token_string).build()
 
     start_handler = CommandHandler('start', start)
